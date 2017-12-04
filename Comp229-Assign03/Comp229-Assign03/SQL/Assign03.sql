@@ -5,11 +5,41 @@ USE [Comp229Assign03]
 /* Object: Table Comp229Assign03.[dbo].[Students] */
 GO
 
-Create Procedure dbo.ListMemo1
+
+Create Procedure dbo.WriteMemo
+(
+	@LastName NvarChar(25),
+	@FirstMidName NVarChar(100),
+	@EnrollmentDate Date
+)
+As
+	Insert Students(LastName, FirstMidName, EnrollmentDate)
+	Values(@LastName, @FirstMidName, @EnrollmentDate)
+Go
+
+Create Procedure dbo.ListMemo
 As
 	Select *
 	From Students Order By StudentID Desc
 Go 
+
+Create Procedure dbo.ViewMemo
+(
+	@StudentID Int
+)
+As
+	Select *
+	From Students
+	Where StudentID = @StudentID
+Go
+
+
+
+
+
+
+
+
 
 
 SET ANSI_NULLS ON

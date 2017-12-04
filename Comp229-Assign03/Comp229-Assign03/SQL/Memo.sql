@@ -1,4 +1,4 @@
-﻿Create Table dbo.Memos2
+﻿Create Table dbo.Memos
 (
 	Num Int Identity(1,1) Primary key,
 	Name NVarChar(25) Not Null,
@@ -8,7 +8,7 @@
 	PostIP NVarChar(15) Null
 )
 
-Insert Memos2
+Insert Memos
 Values
 (
 	N'레드플러스', N'redplus@devlec.com', N'레드플러스입니다.'

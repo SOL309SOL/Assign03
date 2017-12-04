@@ -10,60 +10,78 @@
 namespace Comp229_Assign03 {
     
     
-    public partial class _Default {
+    public partial class WebForm1 {
         
         /// <summary>
-        /// GridView1 control.
+        /// lblId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.Label lblId;
         
         /// <summary>
-        /// txtlName control.
+        /// lblFname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtlName;
+        protected global::System.Web.UI.WebControls.Label lblFname;
         
         /// <summary>
-        /// txtfName control.
+        /// lblLname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtfName;
+        protected global::System.Web.UI.WebControls.Label lblLname;
         
         /// <summary>
-        /// btnWrite control.
+        /// lblDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnWrite;
+        protected global::System.Web.UI.WebControls.Label lblDate;
         
         /// <summary>
-        /// btnList control.
+        /// lblCourse control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnList;
+        protected global::System.Web.UI.WebControls.Label lblCourse;
         
         /// <summary>
-        /// label2 control.
+        /// lnkMemoModify control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label label2;
+        protected global::System.Web.UI.WebControls.HyperLink lnkMemoModify;
+        
+        /// <summary>
+        /// lnkMemoDelete control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink lnkMemoDelete;
+        
+        /// <summary>
+        /// lnkMemoList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink lnkMemoList;
     }
 }

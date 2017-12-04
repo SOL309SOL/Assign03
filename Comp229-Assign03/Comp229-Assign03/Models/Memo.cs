@@ -7,11 +7,9 @@ namespace Comp229_Assign03.Models
 {
     public class Memo
     {
-         public int Num { get; set; }
-         public string Name { get; set; }
-         public string Email { get; set; }
-         public string Title { get; set; }
-         public DateTime PostDate { get; set; }
-         public string PostIp { get; set; }
+         public int StudentID { get; set; }
+         public string LastName { get; set; }
+         public string FirstMidName { get; set; }
+         public DateTime EnrollmentDate { get; set; }
     }
 }
