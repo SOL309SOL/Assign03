@@ -15,7 +15,7 @@ namespace Comp229_Assign03
         protected void Page_Load(object sender, EventArgs e)
         {
             
-             if (String.IsNullOrEmpty(Request["Num"]))
+             if (String.IsNullOrEmpty(Request["StudentID"]))
              {
                  Response.Write("Wrong request");
                  Response.End();
@@ -24,9 +24,9 @@ namespace Comp229_Assign03
              {
                  DisplayData();
                  lnkMemoModify.NavigateUrl =
-                     $"FrmMemoModify.aspx?StudentID={Request["StudentID"]}";
+                     $"WebForm3.aspx?StudentID={Request["StudentID"]}";
                  lnkMemoDelete.NavigateUrl =
-                     $"FrmMemoDelete.aspx?StudentID={Request["StudentID"]}";
+                     $"WebForm2.aspx?StudentID={Request["StudentID"]}";
              }
 
         }

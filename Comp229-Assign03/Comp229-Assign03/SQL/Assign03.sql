@@ -5,6 +5,31 @@ USE [Comp229Assign03]
 /* Object: Table Comp229Assign03.[dbo].[Students] */
 GO
 
+Create Proc dbo.ModifyMemo1
+(
+	@FirstMidName NVarChar(25),
+	@LastName NVarChar(100),
+	@StudentID Int
+)
+As
+Begin Transaction
+	Update Students
+	Set
+		FirstMidName = @FirstMidName,
+		LastName = @LastName
+	Where StudentID = @StudentID
+Commit Transaction
+Go
+
+
+Create Proc dbo.DeleteMemo1
+(
+	@StudentID Int
+)
+As
+	Delete Students
+	Where StudentID = @StudentID
+Go
 
 Create Procedure dbo.WriteMemo
 (
@@ -32,6 +57,7 @@ As
 	From Students
 	Where StudentID = @StudentID
 Go
+
 
 
 
