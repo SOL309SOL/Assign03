@@ -2,29 +2,13 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-
-        <div>
-            <h3>메모리스트</h3>
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False">
-                <Columns>
-                    <asp:BoundField HeaderText ="Number" DataField ="StudentID" />
-                    <asp:BoundField HeaderText ="Last Name" DataField="LastName" />
-                    <asp:HyperLinkField HeaderText="First Name"
-                        DataTextField="FirstMidName"
-                        DataNavigateUrlFormatString ="WebForm1.aspx?StudentID={0}"
-                        DataNavigateUrlFields="StudentID" />
-                    <asp:TemplateField HeaderText="EnrollmentDate">
-                        <ItemTemplate>
-                            <%# Eval("EnrollmentDate") %>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                </Columns>
-            </asp:GridView>
-             </div>
-    <div>
-            <h3>Register</h3>
-            Last Name: <asp:TextBox ID="txtlName" runat="server"></asp:TextBox><br />
+    <asp:Image ID="Image1" runat="server" ImageUrl="~/img/school.png" width="200px"/>
+     <div class="Default_List">
+            <h3>Register Student</h3>
+            
             First Name: <asp:TextBox ID="txtfName" runat="server"></asp:TextBox><br />
+        Last Name: <asp:TextBox ID="txtlName" runat="server"></asp:TextBox><br />
+         Course: <asp:TextBox ID="txtCourse" runat="server"></asp:TextBox><br />
             <asp:Button ID="btnWrite" runat="server" Text="Register" 
                 Onclick="btnWrite_Click"/>&nbsp;
             <asp:Button ID="btnList" runat="server" Text="View List" 
@@ -33,5 +17,25 @@
             <asp:Label ID="label2" runat="server"></asp:Label>
   </div>
 
+        <div class="Default_List">
+            <h3>Students List</h3>
+            <asp:GridView ID="GridView1" runat="server" horizontalalign="Center" AutoGenerateColumns="False" RowStyle-BorderColor="White">
+                <Columns>
+                    <asp:BoundField HeaderText ="Number" DataField ="StudentID" />
+                    <asp:HyperLinkField HeaderText="First Name"
+                        DataTextField="FirstMidName"
+                        DataNavigateUrlFormatString ="StudentPage.aspx?StudentID={0}"
+                        DataNavigateUrlFields="StudentID" />
+                    <asp:BoundField HeaderText ="Last Name" DataField="LastName" />
+                    <asp:TemplateField HeaderText="EnrollmentDate">
+                        <ItemTemplate>
+                            <%# Eval("EnrollmentDate") %>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                </Columns>
+
+            </asp:GridView>
+             </div>
+   
 
 </asp:Content>

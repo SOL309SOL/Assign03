@@ -10,42 +10,51 @@
 namespace Comp229_Assign03 {
     
     
-    public partial class WebForm2 {
+    public partial class WebForm4 {
         
         /// <summary>
-        /// Image1 control.
+        /// CourseGridView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image1;
+        protected global::System.Web.UI.WebControls.GridView CourseGridView;
         
         /// <summary>
-        /// lblNum control.
+        /// txtfName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNum;
+        protected global::System.Web.UI.WebControls.TextBox txtfName;
         
         /// <summary>
-        /// btnDelete control.
+        /// txtlName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnDelete;
+        protected global::System.Web.UI.WebControls.TextBox txtlName;
         
         /// <summary>
-        /// lnkList control.
+        /// btnWrite control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkList;
+        protected global::System.Web.UI.WebControls.Button btnWrite;
+        
+        /// <summary>
+        /// label2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label2;
     }
 }

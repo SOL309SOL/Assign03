@@ -10,7 +10,16 @@
 namespace Comp229_Assign03 {
     
     
-    public partial class WebForm1 {
+    public partial class StudentPage {
+        
+        /// <summary>
+        /// Image1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image Image1;
         
         /// <summary>
         /// lblId control.
@@ -56,6 +65,15 @@ namespace Comp229_Assign03 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblCourse;
+        
+        /// <summary>
+        /// lnkCourseView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink lnkCourseView;
         
         /// <summary>
         /// lnkMemoModify control.
