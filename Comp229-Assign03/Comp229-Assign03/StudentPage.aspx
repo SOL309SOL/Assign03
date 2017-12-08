@@ -15,13 +15,25 @@
             Course:
             <asp:Label ID="lblCourse" runat="server" Text="Course"></asp:Label><br />
             
-          <asp:HyperLink ID="lnkCourseView" runat="server">Course View</asp:HyperLink>
-              </div>
+              <asp:GridView ID="CourseGridView" runat="server" horizontalalign="Center" AutoGenerateColumns="False" RowStyle-BorderColor="White">
+                <Columns>
+                    
+                    <asp:HyperLinkField HeaderText="Course"
+                        DataTextField="CourseID"
+                        DataNavigateUrlFormatString ="WebForm4.aspx?CourseID={0}"
+                        DataNavigateUrlFields="CourseID" />
+                   <asp:BoundField HeaderText ="Title" DataField ="Title" />
+                </Columns>
 
+            </asp:GridView>
+
+        </div>
+          
             <asp:HyperLink ID="lnkMemoModify" class="Button_List" runat="server">Modify</asp:HyperLink>
             <asp:HyperLink ID="lnkMemoDelete" class="Button_List" runat="server">Delete</asp:HyperLink>
             <asp:HyperLink ID="lnkMemoList" class="Button_List" runat="server" 
                 NavigateUrl ="~/Default.aspx">View List</asp:HyperLink>
 
 
+      </div>
 </asp:Content>

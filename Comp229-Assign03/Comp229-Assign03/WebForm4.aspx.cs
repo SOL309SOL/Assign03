@@ -30,8 +30,15 @@ namespace Comp229_Assign03
                 con.ConnectionString = ConfigurationManager.ConnectionStrings["Comp229Assign03"].ConnectionString;
                 con.Open();
 
-                SqlCommand cmd = new SqlCommand("ViewCourse7", con);
+                SqlCommand cmd = new SqlCommand("ViewCourse11", con);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+
+                cmd.Parameters.Add("CourseID", SqlDbType.Int);
+                cmd.Parameters["CourseID"].Value = Convert.ToInt32(Request["CourseID"]);
+
+                cmd.Parameters.Add("StudentID", SqlDbType.Int);
+                cmd.Parameters["StudentID"].Value = Convert.ToInt32(Request["StudentID"]);
 
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
@@ -52,7 +59,7 @@ namespace Comp229_Assign03
             con.ConnectionString = ConfigurationManager.ConnectionStrings["Comp229Assign03"].ConnectionString;
             con.Open();
 
-            SqlCommand cmd = new SqlCommand("ViewCourse10", con);
+            SqlCommand cmd = new SqlCommand("ViewCourse11", con);
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
             cmd.Parameters.Add("CourseID", SqlDbType.Int);
@@ -114,6 +121,53 @@ namespace Comp229_Assign03
             DisplayData();
 
 
+        }
+
+        protected void CourseGridView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+          /*  SqlConnection con = new SqlConnection(ConfigurationManager
+                .ConnectionStrings["Comp229Assign03"].ConnectionString);
+            con.Open();
+
+            SqlCommand cmd = new SqlCommand("DeleteMemo2", con);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+            cmd.Parameters.Add("StudentID", SqlDbType.Int);
+            cmd.Parameters["StudentID"].Value = Convert.ToInt32(Request["StudentID"]);
+
+            cmd.ExecuteNonQuery();
+            con.Close();
+            Response.Redirect("Default.aspx");*/
+        }
+
+        protected void RegisterStudentToCourse_Click(object sender, EventArgs e)
+        {
+            Memo memo = new Memo();
+            memo.FirstMidName = txtfName.Text;
+            memo.LastName = txtlName.Text;
+            // memo.CourseID = txtCourse.Text;
+            memo.EnrollmentDate = DateTime.Now;
+
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = ConfigurationManager.ConnectionStrings[
+                "Comp229Assign03"].ConnectionString;
+            con.Open();
+
+
+            SqlCommand cmd = con.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "Insert into Students values('" +txtFname1.Text + "','" + txtLname1.Text + "','" + memo.EnrollmentDate +"')";
+            cmd.ExecuteNonQuery();
+
+            con.Close();
+            
+
+        }
+
+        protected void Delete_Click(object sender, EventArgs e)
+        {
+            CourseGridView1.DeleteRow(CourseGridView1.SelectedIndex);
         }
     }
 }

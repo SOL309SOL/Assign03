@@ -33,7 +33,7 @@ namespace Comp229_Assign03
                 .ConnectionStrings["Comp229Assign03"].ConnectionString);
             con.Open();
 
-            SqlCommand cmd = new SqlCommand("DeleteMemo1", con);
+            SqlCommand cmd = new SqlCommand("DeleteMemo2", con);
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
             cmd.Parameters.Add("StudentID", SqlDbType.Int);

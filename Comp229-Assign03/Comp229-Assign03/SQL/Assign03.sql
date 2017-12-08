@@ -4,6 +4,21 @@ USE [Comp229Assign03]
 
 /* Object: Table Comp229Assign03.[dbo].[Students] */
 GO
+Create Procedure dbo.ViewCoursesList
+(
+@CourseID Int
+)
+As
+SELECT CourseID,Title from Courses
+GO
+
+
+	Select s.StudentID,s.FirstMidName, s.LastName, c.CourseID, c.Title
+	from Courses c join Enrollments e on e.CourseID = c.CourseID
+	join Students s on s.StudentID = e.StudentID where c.CourseID in (select Courses.CourseID from courses)
+	group by s.StudentID,s.FirstMidName, s.LastName, c.CourseID, c.Title 
+	
+
 
 	select * from students s join Enrollments e on s.StudentID =e.StudentID
 	Go
@@ -14,31 +29,34 @@ As
 	From Students a join Enrollments b on a.StudentID = b.StudentID
 	Go
 
-Create Procedure dbo.ViewCourse10
-(
-	@CourseID Int,
-	@StudentID Int
-)
+Create Procedure dbo.ViewCourse15
+
 As	
-	Select s.StudentID,s.FirstMidName, s.LastName, c.CourseID, c.Title
+
+	Select s.StudentID,s.FirstMidName, s.LastName
 	from Courses c join Enrollments e on e.CourseID = c.CourseID
-	join Students s on s.StudentID = e.StudentID
-	where c.CourseID = 4000
+	join Students s on s.StudentID = e.StudentID where c.CourseID in (select Courses.CourseID from courses)
+	group by s.StudentID,s.FirstMidName, s.LastName
 	
 Go
 
 
-Create Procedure dbo.ViewMemo13
+Create Procedure dbo.ViewMemo15
 (
 	@StudentID Int,
 	@CourseID Int
 	
 )
 As	
-	Select s.StudentID, s.FirstMidName, s.LastName, s.EnrollmentDate
+	Select s.StudentID, s.FirstMidName, s.LastName, s.EnrollmentDate,c.Title ,c.CourseID
 	from Students s
 	Join Enrollments e on e.StudentID = s.StudentID
-	Where e.StudentID = 307019
+	Join Courses c on c.CourseID = e.CourseID
+	Where e.StudentID = @StudentID
+	Group by s.StudentID, s.FirstMidName, s.LastName, s.EnrollmentDate,c.Title ,c.CourseID
+	Select CourseID, Title from Courses
+	Where CourseID = @CourseID
+	Group by CourseID, Title
 Go
 
 
@@ -58,15 +76,21 @@ Begin Transaction
 Commit Transaction
 Go
 
+USE [Comp229Assign03]
 
-Create Proc dbo.DeleteMemo1
+/* Object: Table Comp229Assign03.[dbo].[Students] */
+GO
+
+Create Proc dbo.CourseDelete
 (
-	@StudentID Int
+	@EnrollmentID Int
 )
 As
-	Delete Students
-	Where StudentID = @StudentID
+	Delete Enrollments
+	Where EnrollmentID = @EnrollmentID
 Go
+
+rollback;
 
 
 USE [Comp229Assign03]
@@ -88,13 +112,7 @@ As
 	Select Students.StudentID, @CourseID, 10 from Enrollments, Students
 GO
 
-	Values(@StudentID,@CourseID,10)
 
-	INSERT INTO user (id, name, username, opted_in)
-  SELECT id, name, username, opted_in 
-  FROM user LEFT JOIN user_permission AS userPerm ON user.id = userPerm.user_id
-
-GO
 
 Create Procedure dbo.WriteMemo6
 (
@@ -145,12 +163,14 @@ USE [Comp229Assign03]
 
 /* Object: Table Comp229Assign03.[dbo].[Students] */
 GO
-Create Procedure dbo.ListMemo9
+Create Procedure dbo.ListMemo10
 As
-	Select a.StudentID,a.FirstMidName,a.LastName,a.EnrollmentDate
-	From Students a join Enrollments b on a.studentId = b.studentId
-	group by a.StudentID, a.FirstMidName, a.LastName, a.EnrollmentDate Order By a.StudentID Desc
-	Go
+	Select a.StudentID,a.FirstMidName,a.LastName,a.EnrollmentDate, c. CourseID
+	From Students a left outer join Enrollments b on a.studentId = b.studentId 
+	join Courses c on b.CourseID = c.CourseID
+	group by a.StudentID, a.FirstMidName, a.LastName, a.EnrollmentDate, c.CourseID
+	Order By a.StudentID Desc
+
 
 	Select StudentID,FirstMidName,LastName,EnrollmentDate
 	From Students
@@ -164,7 +184,10 @@ As
 
 
 
-
+	
+select s.StudentID,s.FirstMidName, s.LastName from Courses c join Enrollments e on e.CourseID = c.CourseID
+	join Students s on s.StudentID = e.StudentID where c.CourseID = 4001
+	group by s.StudentID,s.FirstMidName, s.LastName, c.CourseID, c.Title
 
 
 

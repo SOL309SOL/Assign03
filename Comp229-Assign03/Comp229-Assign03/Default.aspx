@@ -2,9 +2,17 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
+    
+   
+    <div class="jumbotron">
+        
     <asp:Image ID="Image1" runat="server" ImageUrl="~/img/school.png" width="200px"/>
-     <div class="Default_List">
-            <h3>Register Student</h3>
+         </div>
+
+    <div class="row">
+        <div class="col-md-6">
+             <div class="Default_List">
+             <h3>Register Student</h3>
             
             First Name: <asp:TextBox ID="txtfName" runat="server"></asp:TextBox><br />
         Last Name: <asp:TextBox ID="txtlName" runat="server"></asp:TextBox><br />
@@ -15,10 +23,11 @@
                 Onclick="btnList_Click"/>
 
             <asp:Label ID="label2" runat="server"></asp:Label>
-  </div>
-
-        <div class="Default_List">
-            <h3>Students List</h3>
+                 </div>
+          </div>
+        <div class="col-md-6">
+             <div class="Default_List">
+             <h3>Students List</h3>
             <asp:GridView ID="GridView1" runat="server" horizontalalign="Center" AutoGenerateColumns="False" RowStyle-BorderColor="White">
                 <Columns>
                     <asp:BoundField HeaderText ="Number" DataField ="StudentID" />
@@ -35,7 +44,9 @@
                 </Columns>
 
             </asp:GridView>
-             </div>
-   
+                 </div>
+            </div>
+    </div>
+
 
 </asp:Content>

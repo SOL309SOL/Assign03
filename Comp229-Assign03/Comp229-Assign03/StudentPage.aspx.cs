@@ -27,8 +27,6 @@ namespace Comp229_Assign03
                      $"WebForm3.aspx?StudentID={Request["StudentID"]}";
                  lnkMemoDelete.NavigateUrl =
                      $"WebForm2.aspx?StudentID={Request["StudentID"]}";
-                lnkCourseView.NavigateUrl =
-                    $"WebForm4.aspx?CourseID={Request["CourseID"]}";
              }
 
         }
@@ -38,7 +36,7 @@ namespace Comp229_Assign03
             con.ConnectionString = ConfigurationManager.ConnectionStrings["Comp229Assign03"].ConnectionString;
             con.Open();
 
-            SqlCommand cmd = new SqlCommand("ViewMemo12", con);
+            SqlCommand cmd = new SqlCommand("ViewMemo15", con);
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
             cmd.Parameters.Add("StudentID", SqlDbType.Int);
@@ -47,6 +45,16 @@ namespace Comp229_Assign03
             cmd.Parameters.Add("CourseID", SqlDbType.Int);
             cmd.Parameters["CourseID"].Value = Convert.ToInt32(Request["CourseID"]);
 
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataSet ds = new DataSet();
+
+            da.Fill(ds);
+
+            CourseGridView.DataSource = ds;
+            CourseGridView.DataBind();
+
+
+            
             SqlDataReader dr = cmd.ExecuteReader();
 
 
