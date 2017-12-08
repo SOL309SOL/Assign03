@@ -10,52 +10,34 @@
 namespace Comp229_Assign03 {
     
     
-    public partial class WebForm3 {
+    public partial class DeletePage {
         
         /// <summary>
-        /// lblId control.
+        /// Image1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblId;
+        protected global::System.Web.UI.WebControls.Image Image1;
         
         /// <summary>
-        /// txtFName control.
+        /// lblNum control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFName;
+        protected global::System.Web.UI.WebControls.Label lblNum;
         
         /// <summary>
-        /// txtLName control.
+        /// btnDelete control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLName;
-        
-        /// <summary>
-        /// txtDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDate;
-        
-        /// <summary>
-        /// btnModify control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnModify;
+        protected global::System.Web.UI.WebControls.Button btnDelete;
         
         /// <summary>
         /// btnList control.

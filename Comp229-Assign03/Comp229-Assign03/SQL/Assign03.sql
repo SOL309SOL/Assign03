@@ -29,15 +29,14 @@ As
 	From Students a join Enrollments b on a.StudentID = b.StudentID
 	Go
 
-Create Procedure dbo.ViewCourse15
+Create Procedure dbo.ViewCourse11
 
 As	
 
-	Select s.StudentID,s.FirstMidName, s.LastName
+	Select s.StudentID,s.FirstMidName, s.LastName, c.CourseID, c.Title
 	from Courses c join Enrollments e on e.CourseID = c.CourseID
-	join Students s on s.StudentID = e.StudentID where c.CourseID in (select Courses.CourseID from courses)
-	group by s.StudentID,s.FirstMidName, s.LastName
-	
+	join Students s on s.StudentID = e.StudentID where c.CourseID = 4003
+	group by s.StudentID,s.FirstMidName, s.LastName, c.CourseID, c.Title
 Go
 
 
@@ -98,7 +97,7 @@ USE [Comp229Assign03]
 /* Object: Table Comp229Assign03.[dbo].[Students] */
 GO
 
-Create Procedure dbo.WriteMemo14
+Create Procedure dbo.WriteMemo16
 (
 	@LastName NvarChar(25),
 	@FirstMidName NVarChar(100),
@@ -106,12 +105,15 @@ Create Procedure dbo.WriteMemo14
 	@CourseID Int
 )
 As
-	Insert Students(LastName, FirstMidName, EnrollmentDate)
+		Insert Students(LastName, FirstMidName, EnrollmentDate)
 	Values(@LastName, @FirstMidName, @EnrollmentDate)
 	Insert Enrollments(StudentID,CourseID,Grade)
 	Select Students.StudentID, @CourseID, 10 from Enrollments, Students
+		Select s.StudentID,s.FirstMidName, s.LastName, c.CourseID, c.Title
+	from Courses c join Enrollments e on e.CourseID = c.CourseID
+	join Students s on s.StudentID = e.StudentID where c.CourseID = @CourseID
+	group by s.StudentID,s.FirstMidName, s.LastName, c.CourseID, c.Title
 GO
-
 
 
 Create Procedure dbo.WriteMemo6
@@ -129,7 +131,7 @@ As
 	Values(@CourseID,@StudentID.StudentID,10)
 Go
 
-
+delete from Enrollments;
 USE [Comp229Assign03]
 
 /* Object: Table Comp229Assign03.[dbo].[Students] */
@@ -189,8 +191,29 @@ select s.StudentID,s.FirstMidName, s.LastName from Courses c join Enrollments e 
 	join Students s on s.StudentID = e.StudentID where c.CourseID = 4001
 	group by s.StudentID,s.FirstMidName, s.LastName, c.CourseID, c.Title
 
+	delete from Enrollments
+	Go
 
 
+	Create Procedure dbo.WriteMemo15
+(
+	@LastName NvarChar(25),
+	@FirstMidName NVarChar(100),
+	@EnrollmentDate Date,
+	@CourseID Int,
+	@StudentID Int
+)
+As
+	Insert Students(LastName, FirstMidName, EnrollmentDate)
+	Values(@LastName, @FirstMidName, @EnrollmentDate)
+	Insert Enrollments(StudentID,CourseID,Grade)
+	Values (@StudentID, @CourseID, 10)
+
+
+	Insert Enrollments(StudentID,CourseID,Grade)
+	Values (300000, 4002, 10 )
+
+	
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -303,6 +326,8 @@ VALUES ('Trigonometry', 4, 2)
 INSERT INTO Comp229Assign03.[dbo].Courses (Title, Credits, DepartmentID)
 VALUES ('Literature', 4, 1)
 
+
+
 --Students
 INSERT INTO Comp229Assign03.[dbo].Students (LastName, FirstMidName, EnrollmentDate)
 VALUES ('Alexander', 'Carson', '2010-09-01')
@@ -327,6 +352,8 @@ VALUES ('Norman', 'Laura', '2013-09-01')
 
 INSERT INTO Comp229Assign03.[dbo].Students (LastName, FirstMidName, EnrollmentDate)
 VALUES ('Olivetto', 'Nino', '2005-09-01')
+
+
 
 --Enrollments
 INSERT INTO Comp229Assign03.[dbo].Enrollments (CourseID, StudentID, Grade)
@@ -366,3 +393,7 @@ INSERT INTO Comp229Assign03.[dbo].Enrollments (CourseID, StudentID, Grade)
 VALUES (4005, 300007, 73)
 
 
+Select a.StudentID,a.FirstMidName,a.LastName,a.EnrollmentDate
+	From Students a
+
+rollback;

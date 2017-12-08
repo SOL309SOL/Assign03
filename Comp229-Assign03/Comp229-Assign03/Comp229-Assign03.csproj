@@ -169,14 +169,33 @@
     </Content>
     <Content Include="img\Course.png" />
     <Content Include="img\delete.png" />
+    <Content Include="img\delete2.png" />
+    <Content Include="img\grass.png" />
+    <Content Include="img\grass1.png" />
+    <Content Include="img\heart.png" />
     <Content Include="img\modify.png" />
     <Content Include="img\profile.png" />
     <Content Include="img\profile2.png" />
     <Content Include="img\school.png" />
+    <Content Include="img\tree.png" />
+    <Content Include="img\tree1.png" />
+    <Content Include="img\tree2.png" />
     <Content Include="StudentPage.aspx" />
-    <Content Include="WebForm2.aspx" />
-    <Content Include="WebForm3.aspx" />
-    <Content Include="WebForm4.aspx" />
+    <Content Include="DeletePage.aspx" />
+    <Content Include="ModifyPage.aspx" />
+    <Content Include="CoursePage.aspx" />
+    <Content Include="fonts\segoeui.ttf" />
+    <Content Include="fonts\segoeuib.ttf" />
+    <Content Include="fonts\segoeuii.ttf" />
+    <Content Include="fonts\segoeuil.ttf" />
+    <Content Include="fonts\segoeuisl.ttf" />
+    <Content Include="fonts\segoeuiz.ttf" />
+    <Content Include="fonts\seguibl.ttf" />
+    <Content Include="fonts\seguibli.ttf" />
+    <Content Include="fonts\seguili.ttf" />
+    <Content Include="fonts\seguisb.ttf" />
+    <Content Include="fonts\seguisbi.ttf" />
+    <Content Include="fonts\seguisli.ttf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -257,26 +276,26 @@
     <Compile Include="StudentPage.aspx.designer.cs">
       <DependentUpon>StudentPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WebForm2.aspx.cs">
-      <DependentUpon>WebForm2.aspx</DependentUpon>
+    <Compile Include="DeletePage.aspx.cs">
+      <DependentUpon>DeletePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebForm2.aspx.designer.cs">
-      <DependentUpon>WebForm2.aspx</DependentUpon>
+    <Compile Include="DeletePage.aspx.designer.cs">
+      <DependentUpon>DeletePage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WebForm3.aspx.cs">
-      <DependentUpon>WebForm3.aspx</DependentUpon>
+    <Compile Include="ModifyPage.aspx.cs">
+      <DependentUpon>ModifyPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebForm3.aspx.designer.cs">
-      <DependentUpon>WebForm3.aspx</DependentUpon>
+    <Compile Include="ModifyPage.aspx.designer.cs">
+      <DependentUpon>ModifyPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WebForm4.aspx.cs">
-      <DependentUpon>WebForm4.aspx</DependentUpon>
+    <Compile Include="CoursePage.aspx.cs">
+      <DependentUpon>CoursePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebForm4.aspx.designer.cs">
-      <DependentUpon>WebForm4.aspx</DependentUpon>
+    <Compile Include="CoursePage.aspx.designer.cs">
+      <DependentUpon>CoursePage.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

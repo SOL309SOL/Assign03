@@ -2,8 +2,14 @@
 body {
     padding-top: 50px;
     padding-bottom: 20px;
-    background-color:gold;
-    text-align:center;
+    background-color: gold;
+    text-align: center;
+}
+h3,h2,h1 {
+    font-family: Segoe UI Black;
+}
+@font-face {
+   
 }
 
 /* Wrapping element */

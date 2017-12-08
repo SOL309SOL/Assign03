@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 
 namespace Comp229_Assign03
 {
-    public partial class WebForm2 : System.Web.UI.Page
+    public partial class DeletePage : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -41,6 +41,11 @@ namespace Comp229_Assign03
 
             cmd.ExecuteNonQuery();
             con.Close();
+            Response.Redirect("Default.aspx");
+        }
+
+        protected void btnList_Click(object sender, EventArgs e)
+        {
             Response.Redirect("Default.aspx");
         }
     }

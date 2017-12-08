@@ -24,9 +24,9 @@ namespace Comp229_Assign03
              {
                  DisplayData();
                  lnkMemoModify.NavigateUrl =
-                     $"WebForm3.aspx?StudentID={Request["StudentID"]}";
+                     $"ModifyPage.aspx?StudentID={Request["StudentID"]}";
                  lnkMemoDelete.NavigateUrl =
-                     $"WebForm2.aspx?StudentID={Request["StudentID"]}";
+                     $"DeletePage.aspx?StudentID={Request["StudentID"]}";
              }
 
         }
@@ -73,7 +73,7 @@ namespace Comp229_Assign03
                 this.lblFname.Text = dr["FirstMidName"].ToString();
                 this.lblLname.Text = dr["LastName"].ToString();
                 this.lblDate.Text = dr["EnrollmentDate"].ToString();
-                this.lblCourse.Text = dr["Title"].ToString();
+               // this.lblCourse.Text = dr["Title"].ToString();
              }
              else
              {

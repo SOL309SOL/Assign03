@@ -10,34 +10,7 @@
 namespace Comp229_Assign03 {
     
     
-    public partial class WebForm4 {
-        
-        /// <summary>
-        /// CourseGridView control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView CourseGridView;
-        
-        /// <summary>
-        /// CourseGridView1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView CourseGridView1;
-        
-        /// <summary>
-        /// CourseDataSource control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource CourseDataSource;
+    public partial class CoursePage {
         
         /// <summary>
         /// txtFname1 control.
@@ -67,13 +40,40 @@ namespace Comp229_Assign03 {
         protected global::System.Web.UI.WebControls.Button RegisterStudentToCourse;
         
         /// <summary>
-        /// Delete control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Delete;
+        protected global::System.Web.UI.WebControls.Label Label1;
+        
+        /// <summary>
+        /// CourseGridView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView CourseGridView;
+        
+        /// <summary>
+        /// CourseGridView1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView CourseGridView1;
+        
+        /// <summary>
+        /// CourseDataSource control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource CourseDataSource;
         
         /// <summary>
         /// txtfName control.
@@ -94,6 +94,15 @@ namespace Comp229_Assign03 {
         protected global::System.Web.UI.WebControls.TextBox txtlName;
         
         /// <summary>
+        /// txtCourse control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCourse;
+        
+        /// <summary>
         /// btnWrite control.
         /// </summary>
         /// <remarks>
@@ -101,14 +110,5 @@ namespace Comp229_Assign03 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnWrite;
-        
-        /// <summary>
-        /// label2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label label2;
     }
 }

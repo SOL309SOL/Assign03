@@ -11,7 +11,7 @@ using System.Web.UI.WebControls;
 
 namespace Comp229_Assign03
 {
-    public partial class WebForm4 : System.Web.UI.Page
+    public partial class CoursePage : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -91,11 +91,10 @@ namespace Comp229_Assign03
 
         protected void btnWrite_Click(object sender, EventArgs e)
         {
-
             Memo memo = new Memo();
             memo.FirstMidName = txtfName.Text;
             memo.LastName = txtlName.Text;
-
+            memo.CourseID = txtCourse.Text;
             memo.EnrollmentDate = DateTime.Now;
 
             SqlConnection con = new SqlConnection();
@@ -103,22 +102,26 @@ namespace Comp229_Assign03
                 "Comp229Assign03"].ConnectionString;
             con.Open();
 
-
-            SqlCommand cmd = new SqlCommand("WriteMemo11", con);
+            SqlCommand cmd = new SqlCommand("WriteMemo14", con);
+            /*SqlCommand cmd = new SqlCommand(
+                String.Format("Insert into Students(LastName, FirstMidName, EnrollmentDate) Values({0}, {1}, {2}",
+                memo.LastName, memo.FirstMidName, "2017-12-06 12:00:00 AM"), con);*/
 
 
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
-            
             cmd.Parameters.AddWithValue("@LastName", memo.LastName);
             cmd.Parameters.AddWithValue("@FirstMidName", memo.FirstMidName);
+            cmd.Parameters.AddWithValue("@CourseID", memo.CourseID);
+            //cmd.Parameters.AddWithValue("@StudentID", memo.StudentID);
             cmd.Parameters.AddWithValue("@EnrollmentDate", memo.EnrollmentDate);
 
-            cmd.ExecuteNonQuery();
+            cmd.ExecuteReader();
             con.Close();
-            label2.Text = "Saved";
+            Response.Redirect("CoursePage.aspx?CourseID=" + Request["CourseID"]);
 
-            DisplayData();
+
+
 
 
         }
@@ -157,14 +160,14 @@ namespace Comp229_Assign03
 
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "Insert into Students values('" +txtFname1.Text + "','" + txtLname1.Text + "','" + memo.EnrollmentDate +"')";
+            cmd.CommandText = "Insert into Students values('" +txtFname1.Text + "','" + txtLname1.Text + "','" + memo.EnrollmentDate + "')";
+           // cmd.CommandText = "Insert into Enrollments values('" + memo.StudentID + "','" + memo.CourseID + "','" + 0 + "')";
             cmd.ExecuteNonQuery();
 
             con.Close();
-            
+            Response.Redirect("CoursePage.aspx?CourseID=" + Request["CourseID"]);
 
         }
-
         protected void Delete_Click(object sender, EventArgs e)
         {
             CourseGridView1.DeleteRow(CourseGridView1.SelectedIndex);
