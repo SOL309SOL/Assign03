@@ -29,6 +29,8 @@ namespace Comp229_Assign03
         }
         protected void btnDelete_Click(object sender, EventArgs e)
         {
+            //Button for Deleting Selected Student Data
+
             SqlConnection con = new SqlConnection(ConfigurationManager
                 .ConnectionStrings["Comp229Assign03"].ConnectionString);
             con.Open();
@@ -46,6 +48,7 @@ namespace Comp229_Assign03
 
         protected void btnList_Click(object sender, EventArgs e)
         {
+            //Button for Going Back to List
             Response.Redirect("Default.aspx");
         }
     }

@@ -11,6 +11,7 @@ namespace Comp229_Assign03.Models
          public string LastName { get; set; }
          public string FirstMidName { get; set; }
             public string CourseID { get; set; }
+        public int Grade { get; set; }
         public DateTime EnrollmentDate { get; set; }
     }
 }

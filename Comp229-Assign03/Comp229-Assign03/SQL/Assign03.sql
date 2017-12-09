@@ -4,215 +4,6 @@ USE [Comp229Assign03]
 
 /* Object: Table Comp229Assign03.[dbo].[Students] */
 GO
-Create Procedure dbo.ViewCoursesList
-(
-@CourseID Int
-)
-As
-SELECT CourseID,Title from Courses
-GO
-
-
-	Select s.StudentID,s.FirstMidName, s.LastName, c.CourseID, c.Title
-	from Courses c join Enrollments e on e.CourseID = c.CourseID
-	join Students s on s.StudentID = e.StudentID where c.CourseID in (select Courses.CourseID from courses)
-	group by s.StudentID,s.FirstMidName, s.LastName, c.CourseID, c.Title 
-	
-
-
-	select * from students s join Enrollments e on s.StudentID =e.StudentID
-	Go
-
-Create Procedure dbo.ListMemo5
-As
-	Select a.StudentID,a.FirstMidName,a.LastName,a.EnrollmentDate, b.CourseID
-	From Students a join Enrollments b on a.StudentID = b.StudentID
-	Go
-
-Create Procedure dbo.ViewCourse11
-
-As	
-
-	Select s.StudentID,s.FirstMidName, s.LastName, c.CourseID, c.Title
-	from Courses c join Enrollments e on e.CourseID = c.CourseID
-	join Students s on s.StudentID = e.StudentID where c.CourseID = 4003
-	group by s.StudentID,s.FirstMidName, s.LastName, c.CourseID, c.Title
-Go
-
-
-Create Procedure dbo.ViewMemo15
-(
-	@StudentID Int,
-	@CourseID Int
-	
-)
-As	
-	Select s.StudentID, s.FirstMidName, s.LastName, s.EnrollmentDate,c.Title ,c.CourseID
-	from Students s
-	Join Enrollments e on e.StudentID = s.StudentID
-	Join Courses c on c.CourseID = e.CourseID
-	Where e.StudentID = @StudentID
-	Group by s.StudentID, s.FirstMidName, s.LastName, s.EnrollmentDate,c.Title ,c.CourseID
-	Select CourseID, Title from Courses
-	Where CourseID = @CourseID
-	Group by CourseID, Title
-Go
-
-
-Create Proc dbo.ModifyMemo1
-(
-	@FirstMidName NVarChar(25),
-	@LastName NVarChar(100),
-	@StudentID Int
-)
-As
-Begin Transaction
-	Update Students
-	Set
-		FirstMidName = @FirstMidName,
-		LastName = @LastName
-	Where StudentID = @StudentID
-Commit Transaction
-Go
-
-USE [Comp229Assign03]
-
-/* Object: Table Comp229Assign03.[dbo].[Students] */
-GO
-
-Create Proc dbo.CourseDelete
-(
-	@EnrollmentID Int
-)
-As
-	Delete Enrollments
-	Where EnrollmentID = @EnrollmentID
-Go
-
-rollback;
-
-
-USE [Comp229Assign03]
-
-/* Object: Table Comp229Assign03.[dbo].[Students] */
-GO
-
-Create Procedure dbo.WriteMemo16
-(
-	@LastName NvarChar(25),
-	@FirstMidName NVarChar(100),
-	@EnrollmentDate Date,
-	@CourseID Int
-)
-As
-		Insert Students(LastName, FirstMidName, EnrollmentDate)
-	Values(@LastName, @FirstMidName, @EnrollmentDate)
-	Insert Enrollments(StudentID,CourseID,Grade)
-	Select Students.StudentID, @CourseID, 10 from Enrollments, Students
-		Select s.StudentID,s.FirstMidName, s.LastName, c.CourseID, c.Title
-	from Courses c join Enrollments e on e.CourseID = c.CourseID
-	join Students s on s.StudentID = e.StudentID where c.CourseID = @CourseID
-	group by s.StudentID,s.FirstMidName, s.LastName, c.CourseID, c.Title
-GO
-
-
-Create Procedure dbo.WriteMemo6
-(
-	@LastName NvarChar(25),
-	@FirstMidName NVarChar(100),
-	@EnrollmentDate Date,
-	@CourseID Int
-)
-As
-	Declare @StudentID As Table (StudentID Int)
-	Insert Students(FirstMidName, LastName, EnrollmentDate) Output Inserted.StudentID Into @StudentID
-	Values(@LastName, @FirstMidName, @EnrollmentDate)
-	Insert Enrollment(CourseID, StudentID,Grade)
-	Values(@CourseID,@StudentID.StudentID,10)
-Go
-
-delete from Enrollments;
-USE [Comp229Assign03]
-
-/* Object: Table Comp229Assign03.[dbo].[Students] */
-GO
-Create Procedure dbo.WriteMemo12
-(
-	@LastName NvarChar(25),
-	@FirstMidName NVarChar(100),
-	@EnrollmentDate Date,
-	@CourseID Int
-)
-As
-	Insert Students(LastName, FirstMidName, EnrollmentDate)
-	Values(@LastName, @FirstMidName, @EnrollmentDate)
-	Insert Enrollments(StudentID,CourseID,Grade)
-	Values(300005,@CourseID,10)
-	GO
-
-
-Create Procedure dbo.ListMemo3
-(
-	@StudentID Int,
-	@CourseID Int
-)
-As
-	Select StudentID,FirstMidName,LastName,EnrollmentDate
-	From Students Order By StudentID Desc
-Go 
-
-USE [Comp229Assign03]
-
-/* Object: Table Comp229Assign03.[dbo].[Students] */
-GO
-Create Procedure dbo.ListMemo10
-As
-	Select a.StudentID,a.FirstMidName,a.LastName,a.EnrollmentDate, c. CourseID
-	From Students a left outer join Enrollments b on a.studentId = b.studentId 
-	join Courses c on b.CourseID = c.CourseID
-	group by a.StudentID, a.FirstMidName, a.LastName, a.EnrollmentDate, c.CourseID
-	Order By a.StudentID Desc
-
-
-	Select StudentID,FirstMidName,LastName,EnrollmentDate
-	From Students
-
-
-	Select s.StudentID, s.FirstMidName, s.LastName, s.EnrollmentDate,c.Title ,c.CourseID
-	from Students s
-	Join Enrollments e on e.StudentID = s.StudentID
-	Join Courses c on c.CourseID = e.CourseID
-	Where e.StudentID = 307008
-
-
-
-	
-select s.StudentID,s.FirstMidName, s.LastName from Courses c join Enrollments e on e.CourseID = c.CourseID
-	join Students s on s.StudentID = e.StudentID where c.CourseID = 4001
-	group by s.StudentID,s.FirstMidName, s.LastName, c.CourseID, c.Title
-
-	delete from Enrollments
-	Go
-
-
-	Create Procedure dbo.WriteMemo15
-(
-	@LastName NvarChar(25),
-	@FirstMidName NVarChar(100),
-	@EnrollmentDate Date,
-	@CourseID Int,
-	@StudentID Int
-)
-As
-	Insert Students(LastName, FirstMidName, EnrollmentDate)
-	Values(@LastName, @FirstMidName, @EnrollmentDate)
-	Insert Enrollments(StudentID,CourseID,Grade)
-	Values (@StudentID, @CourseID, 10)
-
-
-	Insert Enrollments(StudentID,CourseID,Grade)
-	Values (300000, 4002, 10 )
-
 	
 SET ANSI_NULLS ON
 GO
@@ -391,9 +182,104 @@ VALUES (4005, 300006, 74)
 
 INSERT INTO Comp229Assign03.[dbo].Enrollments (CourseID, StudentID, Grade)
 VALUES (4005, 300007, 73)
+Go
 
 
-Select a.StudentID,a.FirstMidName,a.LastName,a.EnrollmentDate
-	From Students a
+/*Procedures that I made. Please run this before reviewing*/
 
-rollback;
+CREATE Procedure dbo.ListMemo9
+As
+	Select a.StudentID,a.FirstMidName,a.LastName,a.EnrollmentDate
+	From Students a join Enrollments b on a.studentId = b.studentId
+	group by a.StudentID, a.FirstMidName, a.LastName, a.EnrollmentDate Order By a.StudentID Desc
+GO
+
+
+CREATE Procedure dbo.WriteMemo14
+(
+	@LastName NvarChar(25),
+	@FirstMidName NVarChar(100),
+	@EnrollmentDate Date,
+	@CourseID Int
+)
+As
+	Insert Students(LastName, FirstMidName, EnrollmentDate)
+	Values(@LastName, @FirstMidName, @EnrollmentDate)
+
+	Insert Enrollments(StudentID,CourseID, Grade)
+	Select Students.StudentID, @CourseID, Grade from Enrollments, Students
+GO
+
+
+
+Create Procedure dbo.ViewMemo15
+(
+	@StudentID Int,
+	@CourseID Int
+	
+)
+As	
+	Select s.StudentID, s.FirstMidName, s.LastName, s.EnrollmentDate,c.Title ,c.CourseID
+	from Students s
+	Join Enrollments e on e.StudentID = s.StudentID
+	Join Courses c on c.CourseID = e.CourseID
+	Where e.StudentID = @StudentID
+	Group by s.StudentID, s.FirstMidName, s.LastName, s.EnrollmentDate,c.Title ,c.CourseID
+	Select CourseID, Title from Courses
+	Where CourseID = @CourseID
+	Group by CourseID, Title
+
+GO
+
+
+Create Proc dbo.DeleteMemo2
+(
+	@StudentID Int
+)
+As
+	Delete Enrollments
+	Where StudentID =@StudentID
+	Delete Students
+	Where StudentID = @StudentID
+
+GO
+
+
+Create Procedure dbo.ViewMemo
+(
+	@StudentID Int
+)
+As
+	Select *
+	From Students
+	Where StudentID = @StudentID
+GO
+
+
+Create Proc dbo.ModifyMemo1
+(
+	@FirstMidName NVarChar(25),
+	@LastName NVarChar(100),
+	@StudentID Int
+)
+As
+Begin Transaction
+	Update Students
+	Set
+		FirstMidName = @FirstMidName,
+		LastName = @LastName
+	Where StudentID = @StudentID
+Commit Transaction
+GO
+
+Create Procedure dbo.ViewCourse11
+(
+	@CourseID Int,
+	@StudentID Int
+)
+As	
+	Select s.StudentID,s.FirstMidName, s.LastName, c.CourseID, c.Title
+	from Courses c join Enrollments e on e.CourseID = c.CourseID
+	join Students s on s.StudentID = e.StudentID where c.CourseID = @CourseID
+	group by s.StudentID,s.FirstMidName, s.LastName, c.CourseID, c.Title
+GO

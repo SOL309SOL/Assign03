@@ -14,24 +14,26 @@ namespace Comp229_Assign03
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-             if (String.IsNullOrEmpty(Request["StudentID"]))
-             {
-                 Response.Write("Wrong request");
-                 Response.End();
-             }
-             else
-             {
-                 DisplayData();
-                 lnkMemoModify.NavigateUrl =
-                     $"ModifyPage.aspx?StudentID={Request["StudentID"]}";
-                 lnkMemoDelete.NavigateUrl =
-                     $"DeletePage.aspx?StudentID={Request["StudentID"]}";
-             }
+            //Displaying List and linking to the other page with button
+            if (String.IsNullOrEmpty(Request["StudentID"]))
+            {
+                Response.Write("Wrong request");
+                Response.End();
+            }
+            else
+            {
+                DisplayData();
+                lnkMemoModify.NavigateUrl =
+                    $"ModifyPage.aspx?StudentID={Request["StudentID"]}";
+                lnkMemoDelete.NavigateUrl =
+                    $"DeletePage.aspx?StudentID={Request["StudentID"]}";
+            }
 
         }
         private void DisplayData()
         {
+            //Display Selected Student Data using procedure.
+
             SqlConnection con = new SqlConnection();
             con.ConnectionString = ConfigurationManager.ConnectionStrings["Comp229Assign03"].ConnectionString;
             con.Open();
@@ -54,34 +56,27 @@ namespace Comp229_Assign03
             CourseGridView.DataBind();
 
 
-            
+
             SqlDataReader dr = cmd.ExecuteReader();
 
-
-            /*SqlCommand cmdCourse = new SqlCommand("ViewCourse1", con);
-            cmdCourse.CommandType = System.Data.CommandType.StoredProcedure;
-
-            cmdCourse.Parameters.Add("StudentID", SqlDbType.Int);
-            cmdCourse.Parameters["StudentID"].Value = Convert.ToInt32(Request["StudentID"]);
-
-            SqlDataReader dr1 = cmdCourse.ExecuteReader();*/
+            
 
 
             if (dr.Read())
-             {
+            {
                 this.lblId.Text = Request["StudentID"];
                 this.lblFname.Text = dr["FirstMidName"].ToString();
                 this.lblLname.Text = dr["LastName"].ToString();
                 this.lblDate.Text = dr["EnrollmentDate"].ToString();
-               // this.lblCourse.Text = dr["Title"].ToString();
-             }
-             else
-             {
-                 Response.Write("Cannot Find Data");
-                 Response.End();
-             }
-             dr.Close();
-             con.Close();
+              
+            }
+            else
+            {
+                Response.Write("Cannot Find Data");
+                Response.End();
+            }
+            dr.Close();
+            con.Close();
         }
     }
 }

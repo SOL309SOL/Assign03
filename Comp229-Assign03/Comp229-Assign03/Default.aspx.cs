@@ -9,6 +9,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+
+
 namespace Comp229_Assign03
 {
     public partial class _Default : Page
@@ -17,6 +19,7 @@ namespace Comp229_Assign03
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            //Connecting Data and Showing List
 
             SqlConnection con = new SqlConnection();
             con.ConnectionString = ConfigurationManager.ConnectionStrings["Comp229Assign03"].ConnectionString;
@@ -37,37 +40,35 @@ namespace Comp229_Assign03
         }
         protected void btnWrite_Click(object sender, EventArgs e)
         {
-            if (IsValid) {
-            Memo memo = new Memo();
-            //memo.StudentID = memo.StudentID;
-            memo.FirstMidName = txtfName.Text;
-            memo.LastName = txtlName.Text;
-            memo.CourseID = txtCourse.Text;
-            memo.EnrollmentDate = DateTime.Now;
+            //Register new student using procedure. Please run procedure under the SQL folder
+            //The data will stored with every studentID. I tried to fix a lot, but I couldn't fix that
+            if (IsValid)
+            {
+                Memo memo = new Memo();
+                memo.FirstMidName = txtfName.Text;
+                memo.LastName = txtlName.Text;
+                memo.CourseID = txtCourse.Text;
+                memo.EnrollmentDate = DateTime.Now;
 
-            SqlConnection con = new SqlConnection();
-            con.ConnectionString = ConfigurationManager.ConnectionStrings[
-                "Comp229Assign03"].ConnectionString;
-            con.Open();
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = ConfigurationManager.ConnectionStrings[
+                    "Comp229Assign03"].ConnectionString;
+                con.Open();
 
-            SqlCommand cmd = new SqlCommand("WriteMemo14", con);
-            /*SqlCommand cmd = new SqlCommand(
-                String.Format("Insert into Students(LastName, FirstMidName, EnrollmentDate) Values({0}, {1}, {2}",
-                memo.LastName, memo.FirstMidName, "2017-12-06 12:00:00 AM"), con);*/
+                SqlCommand cmd = new SqlCommand("WriteMemo14", con);
 
 
-            cmd.CommandType = System.Data.CommandType.StoredProcedure;
-            
-            cmd.Parameters.AddWithValue("@LastName", memo.LastName);
-            cmd.Parameters.AddWithValue("@FirstMidName", memo.FirstMidName);
-            cmd.Parameters.AddWithValue("@CourseID", memo.CourseID);
-            //cmd.Parameters.AddWithValue("@StudentID", memo.StudentID);
-            cmd.Parameters.AddWithValue("@EnrollmentDate", memo.EnrollmentDate);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
-            cmd.ExecuteReader();
-            con.Close();
-            label2.Text = "Saved";
-            Response.Redirect("~/Default.aspx");
+                cmd.Parameters.AddWithValue("@LastName", memo.LastName);
+                cmd.Parameters.AddWithValue("@FirstMidName", memo.FirstMidName);
+                cmd.Parameters.AddWithValue("@CourseID", memo.CourseID);
+                cmd.Parameters.AddWithValue("@EnrollmentDate", memo.EnrollmentDate);
+
+                cmd.ExecuteReader();
+                con.Close();
+                label2.Text = "Saved";
+                Response.Redirect("~/Default.aspx");
             }
             else
             {
@@ -75,11 +76,6 @@ namespace Comp229_Assign03
             }
 
 
-        }
-
-        protected void btnList_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/Default.aspx");
         }
     }
 }

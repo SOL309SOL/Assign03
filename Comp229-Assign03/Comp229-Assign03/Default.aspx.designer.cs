@@ -31,6 +31,15 @@ namespace Comp229_Assign03 {
         protected global::System.Web.UI.WebControls.TextBox txtfName;
         
         /// <summary>
+        /// ValFname control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ValFname;
+        
+        /// <summary>
         /// txtlName control.
         /// </summary>
         /// <remarks>
@@ -40,6 +49,15 @@ namespace Comp229_Assign03 {
         protected global::System.Web.UI.WebControls.TextBox txtlName;
         
         /// <summary>
+        /// ValLname control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ValLname;
+        
+        /// <summary>
         /// txtCourse control.
         /// </summary>
         /// <remarks>
@@ -47,6 +65,15 @@ namespace Comp229_Assign03 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCourse;
+        
+        /// <summary>
+        /// ValCourse control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ValCourse;
         
         /// <summary>
         /// RegularExpressionValidator1 control.
@@ -65,15 +92,6 @@ namespace Comp229_Assign03 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnWrite;
-        
-        /// <summary>
-        /// btnList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnList;
         
         /// <summary>
         /// label2 control.

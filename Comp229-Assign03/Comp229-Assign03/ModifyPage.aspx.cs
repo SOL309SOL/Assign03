@@ -30,6 +30,9 @@ namespace Comp229_Assign03
         }
         private void DisplayData()
         {
+
+            //To Show Selected Student Data using procedure 
+
             SqlConnection con = new SqlConnection();
             con.ConnectionString = ConfigurationManager.ConnectionStrings["Comp229Assign03"].ConnectionString;
             con.Open();
@@ -46,7 +49,6 @@ namespace Comp229_Assign03
                 this.lblId.Text = Request["StudentID"];
                 this.txtFName.Text = dr["FirstMidName"].ToString();
                 this.txtLName.Text = dr["LastName"].ToString();
-                //this.txtDate.Text = dr["EnrollmentDate"].ToString();
 
             }
             else
@@ -59,11 +61,12 @@ namespace Comp229_Assign03
         }
         protected void btnModify_Click(object sender, EventArgs e)
         {
+            //Button for modifing 
+
             Memo memo = new Memo();
             memo.StudentID = Convert.ToInt32(Request["StudentID"]);
             memo.FirstMidName = txtFName.Text;
             memo.LastName = txtLName.Text;
-            //memo.EnrollmentDate = txtDate;
 
             SqlConnection con = new SqlConnection(ConfigurationManager
                 .ConnectionStrings["Comp229Assign03"].ConnectionString);
@@ -75,7 +78,6 @@ namespace Comp229_Assign03
 
             cmd.Parameters.AddWithValue("@FirstMidName", memo.FirstMidName);
             cmd.Parameters.AddWithValue("@LastName", memo.LastName);
-            //cmd.Parameters.AddWithValue("@EnrollmentDate", memo.EnrollmentDate);
             cmd.Parameters.AddWithValue("@StudentID", memo.StudentID);
 
             cmd.ExecuteNonQuery();
@@ -87,6 +89,7 @@ namespace Comp229_Assign03
         }
         protected void btnList_Click(Object sender, EventArgs e)
         {
+            //button for going back to list page
             Response.RedirectPermanent("Default.aspx");
         }
     }

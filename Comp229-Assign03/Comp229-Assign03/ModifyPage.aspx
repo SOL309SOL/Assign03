@@ -3,15 +3,14 @@
      <h3>Modify</h3>
         <img src="img/modify.png" />
         <div class="Default_List">
-           
+
+           <%--Modifying Selected Student Data--%>
             <b>Student Number:</b><br />
             <asp:Label ID="lblId" runat="server" Text="Label"></asp:Label><br /><br />
             <b>First Name:</b>
             <asp:TextBox CssClass="form-control" ID="txtFName" runat="server"></asp:TextBox><br />
             <b>Last Name:</b>
-            <asp:TextBox CssClass="form-control" ID="txtLName" runat="server"></asp:TextBox><br />
-           <!-- Enrollment Date:
-            <asp:TextBox ID="txtDate" runat="server"></asp:TextBox>--><br />
+            <asp:TextBox CssClass="form-control" ID="txtLName" runat="server"></asp:TextBox><br /><br />
             <asp:Button ID="btnModify" class="btn dropdown-toggle" runat="server" Text="Modify" 
                 Onclick="btnModify_Click"/>
             <asp:Button ID="btnList" class="btn dropdown-toggle" runat="server" Text="List" 

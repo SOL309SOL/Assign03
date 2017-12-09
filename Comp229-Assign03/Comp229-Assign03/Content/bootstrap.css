@@ -6818,8 +6818,10 @@ td.visible-print {
 
 
 
-/*NEW*/
+/*New Css that I made. 
+    I just add to existed bootstrap.css because it's short*/
 
+/* Floralwhite color div to contain content*/
 .Default_List {
     
     background-color: floralwhite;
@@ -6830,6 +6832,7 @@ td.visible-print {
     z-index:100;
   
 }
+/*Div for buttons*/
 .Button_List {
     background-color: #fff4bc;
     padding: 10px 20px 10px 20px;
@@ -6843,19 +6846,21 @@ td.visible-print {
 .buttons {
     font-size: 1.5em;
 }
-    .buttons span {
-        border: 5px double yellowgreen;
-        padding: 10px;
-        border-radius: 100px;
-        background-color:yellowgreen;
-    }
-        .buttons  a {
-            color: white;
-        }
+.buttons span {
+    border: 5px double yellowgreen;
+    padding: 10px;
+    border-radius: 100px;
+    background-color:yellowgreen;
+}
+.buttons  a {
+    color: white;
+}
+/*Image*/
 .tree {
     margin-top: 10px;
     width: 17%;
 }
+/*For icon*/
 .font{
     font-size:1.1em;
 }
