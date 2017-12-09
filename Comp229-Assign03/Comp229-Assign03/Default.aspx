@@ -7,7 +7,9 @@
     I used procedure to use database.
     Please run Assign03.sql under the SQL folder before reviewing.
     I'm sorry to bother you.
-    Thanks.--%>
+    Thanks.
+      
+      p.s Please run this with Internet Explorer. :) Chrome seems not have font..--%>
 
 
     <asp:Image class="tree" runat="server" ImageUrl="img/tree1.png" />
